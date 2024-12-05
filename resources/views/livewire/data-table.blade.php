@@ -34,10 +34,15 @@
 
                         @foreach($users as $user)
                             <tr>
+                                {{--Name--}}
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">{{$user->name}}</td>
+                                {{--Email--}}
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">{{$user->email}}</td>
+                                {{--Position--}}
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">{{$user->position}}</td>
+                                {{--Created at--}}
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">{{$user->created_at}}</td>
+                                {{--Action (Delete Button)--}}
                                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                     <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
                                 </td>
