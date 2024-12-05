@@ -37,3 +37,27 @@ first search oda container poitu, athoda input field la
     <input wire:model.live.debounce.300ms="search"
 
 intha mari kuduthukalam.. now antha search ku function yeluthalam.. 
+
+in model file 
+
+    // For Search
+    public function scopeSearch($query, $value){
+        $query->where('name', 'LIKE', "%$value%")->orwhere('email', 'LIKE', "%$value%");
+    }
+
+in render function
+
+    public function render()
+    {
+        return view('livewire.data-table', [
+            'users'=> User::search($this->search)
+            ->paginate($this->perPage)
+        ]);
+    }
+
+Next Name ah vachu epdi sorting panrathunu paakalam.. 
+
+name oda table header la .. itha add pannitu
+    wire:click="setSortFunctionality('name')"
+
+ipo ithuku function yeluthalam.. 

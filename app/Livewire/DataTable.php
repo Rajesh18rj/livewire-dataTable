@@ -10,21 +10,22 @@ class DataTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 5;
+    public $perPage = 7;
     public $search = "";
 
-    public $sortByColumn ="";
-
-    public $sortDirection = "asc";
+    public $sortByColumn = 'name';
+    public $sortDirection = "ASC";
 
     public function setSortFunctionality($columnName){
-
+            $this->sortByColumn = $columnName;
+            $this->sortDirection = 'DESC';
     }
     public function render()
     {
         return view('livewire.data-table', [
             'users'=> User::search($this->search)
-            ->paginate($this->perPage)
+                ->orderBy($this->sortByColumn,$this->sortDirection)
+                ->paginate($this->perPage)
         ]);
     }
 }
